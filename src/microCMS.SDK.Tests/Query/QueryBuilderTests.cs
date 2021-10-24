@@ -13,6 +13,8 @@ namespace microCMS.SDK.Tests
             {
                 Fields = "id,author",
                 Limit = 10,
+                Offset = 0,
+                Depth = 1,
                 Q = "test",
                 Orders = "-createdAt",
                 Ids = "1,2",
