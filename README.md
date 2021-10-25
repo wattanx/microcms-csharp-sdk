@@ -63,7 +63,7 @@ public class Sample
         // Response is deserialized to generic type parameter `T`.
         var response = client.GetList<Category>(new GetListRequest()
         {
-            Endpoint = "categories", Queries = queries
+            Endpoint = "categories"
         }).Result;
     }
 }
