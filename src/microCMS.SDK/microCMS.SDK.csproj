@@ -7,6 +7,7 @@
     <RepositoryUrl>https://github.com/wattanx/microcms-csharp-sdk</RepositoryUrl>
     <PackageTags>microcms</PackageTags>
     <Description>It helps you to use microCMS from C# applications.(unofficial)</Description>
+    <PackageReadmeFile>../../README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
