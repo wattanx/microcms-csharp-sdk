@@ -13,7 +13,5 @@ namespace microCMS.SDK
         public string ContentId { get; set; }
 
         public MicroCMSQueries Queries { get; set; } = new MicroCMSQueries();
-
-        public bool UseGlobalDraftKey { get; set; } = true;
     }
 }

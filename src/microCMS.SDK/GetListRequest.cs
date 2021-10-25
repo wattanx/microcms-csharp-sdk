@@ -11,7 +11,5 @@ namespace microCMS.SDK
         public string Endpoint { get; set; }
 
         public MicroCMSQueries Queries { get; set; } = new MicroCMSQueries();
-
-        public bool UseGlobalDraftKey { get; set; } = true;
     }
 }

@@ -23,11 +23,10 @@ namespace microCMS.SDK.Client
             httpClient = new HttpClient();
         }
 
-        public MicroCMSClient(string serviceDomain, string apiKey, string globalDraftKey)
+        public MicroCMSClient(string serviceDomain, string apiKey)
         {
             this.serviceDomain = serviceDomain;
             this.apiKey = apiKey;
-            this.globalDraftKey = globalDraftKey;
         }
 
         private string serviceDomain;
@@ -44,19 +43,12 @@ namespace microCMS.SDK.Client
             set => apiKey = value;
         }
 
-        private string globalDraftKey;
-        public string GlobalDraftKey
-        {
-            get => globalDraftKey;
-            set => globalDraftKey = value;
-        }
-
         /// <summary>
         /// Get list and object API data for microCMS
         /// </summary>
         public async Task<T> Get<T>(GetRequest request)
         {
-            return await Send<T>(request.Endpoint, request.ContentId, request.Queries, request.UseGlobalDraftKey);
+            return await Send<T>(request.Endpoint, request.ContentId, request.Queries);
         }
 
         /// <summary>
@@ -64,7 +56,7 @@ namespace microCMS.SDK.Client
         /// </summary>
         public async Task<MicroCMSListResponse<T>> GetList<T>(GetListRequest request) where T : MicroCMSListContent
         {
-            return await Send<MicroCMSListResponse<T>>(request.Endpoint, "", request.Queries, request.UseGlobalDraftKey);
+            return await Send<MicroCMSListResponse<T>>(request.Endpoint, "", request.Queries);
         }
 
         /// <summary>
@@ -76,7 +68,7 @@ namespace microCMS.SDK.Client
             {
                 throw new ArgumentException("contentId is required");
             }
-            return await Send<T>(request.Endpoint, request.ContentId, request.Queries, request.UseGlobalDraftKey);
+            return await Send<T>(request.Endpoint, request.ContentId, request.Queries);
         }
 
         /// <summary>
@@ -84,10 +76,10 @@ namespace microCMS.SDK.Client
         /// </summary>
         public async Task<T> GetObject<T>(GetObjectRequest request) where T : MicroCMSObjectContent
         {
-            return await Send<T>(request.Endpoint, "", request.Queries, request.UseGlobalDraftKey);
+            return await Send<T>(request.Endpoint, "", request.Queries);
         }
 
-        private async Task<T> Send<T>(string endpoint, string contentId, MicroCMSQueries queries, bool useGlobalDraftKey)
+        private async Task<T> Send<T>(string endpoint, string contentId, MicroCMSQueries queries)
         {
             if (string.IsNullOrEmpty(endpoint))
             {
@@ -99,13 +91,7 @@ namespace microCMS.SDK.Client
             var url = CreateUrl(endpoint, contentId, queryString);
             var request = new HttpRequestMessage(HttpMethod.Get, url);
 
-            // WIP Need to change to X-MICROCMS-API-KEY
-            request.Headers.Add("X-API-KEY", ApiKey);
-
-            if (!string.IsNullOrEmpty(GlobalDraftKey) && useGlobalDraftKey)
-            {
-                request.Headers.Add("X-GLOBAL-DRAFT-KEY", GlobalDraftKey);
-            }
+            request.Headers.Add("X-MICROCMS-API-KEY", ApiKey);
 
             try
             {

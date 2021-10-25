@@ -25,7 +25,7 @@ namespace microCMS.SDK.Tests
             };
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.Get<MicroCMSListResponse<Category>>(new GetRequest() { Endpoint = "categories", Queries = queries }).Result;
 
             response.TotalCount.Is(3);
@@ -36,7 +36,7 @@ namespace microCMS.SDK.Tests
         {
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.Get<Blog>(new GetRequest() { Endpoint = "blog", ContentId = "m_5fm20iyh" }).Result;
 
             response.Id.Is("m_5fm20iyh");
@@ -51,7 +51,7 @@ namespace microCMS.SDK.Tests
             };
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
             apiKey = TestContext.Properties["ApiKey"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Category>(new GetListRequest() { Endpoint = "categories", Queries = queries }).Result;
 
             response.TotalCount.Is(3);
@@ -62,7 +62,7 @@ namespace microCMS.SDK.Tests
         {
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetListDetail<Blog>(new GetListDetailRequest() { Endpoint = "blog", ContentId = "m_5fm20iyh" }).Result;
 
             response.Id.Is("m_5fm20iyh");
@@ -78,7 +78,7 @@ namespace microCMS.SDK.Tests
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetObject<PopularArticles>(new GetObjectRequest() { Endpoint = "popular-articles", Queries = queries }).Result;
 
             response.Articles.FirstOrDefault().Id.Is("m_5fm20iyh");
@@ -94,7 +94,7 @@ namespace microCMS.SDK.Tests
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Blog>(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
             response.Contents.Count().Is(10);
@@ -110,7 +110,7 @@ namespace microCMS.SDK.Tests
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Blog>(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
             response.Contents.Count().Is(2);
@@ -126,7 +126,7 @@ namespace microCMS.SDK.Tests
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Blog>(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
             response.Contents.FirstOrDefault().Id.Is("m_5fm20iyh");
@@ -143,7 +143,7 @@ namespace microCMS.SDK.Tests
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Blog>(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
             response.Contents.FirstOrDefault().Id.Is("elj-nqloy4ni");
@@ -159,7 +159,7 @@ namespace microCMS.SDK.Tests
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
-            var client = new MicroCMSClient(serviceDomain, apiKey, "");
+            var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Blog>(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
             response.Contents.Count().Is(1);
