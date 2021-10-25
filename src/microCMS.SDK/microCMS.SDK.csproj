@@ -8,6 +8,8 @@
     <PackageTags>microcms</PackageTags>
     <Description>It helps you to use microCMS from C# applications.(unofficial)</Description>
     <PackageReadmeFile>../../README.md</PackageReadmeFile>
+    <Version>1.1.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
