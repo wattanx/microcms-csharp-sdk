@@ -9,13 +9,13 @@ It helps you to use microCMS from C# applications.(unofficial)
 - Package Manager
 
 ```
-Install-Package microCMS.SDK -Version 1.1.0
+Install-Package microCMS.SDK -Version 2.0.0
 ```
 
 - .NET CLI
 
 ```
-dotnet add package microCMS.SDK --version 1.1.0
+dotnet add package microCMS.SDK --version 2.0.0
 ```
 
 ### How to use
