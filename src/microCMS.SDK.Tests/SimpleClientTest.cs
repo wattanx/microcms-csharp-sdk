@@ -39,10 +39,10 @@ namespace microCMS.SDK.Tests
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
             var client = new SimpleMicroCMSClient(serviceDomain, apiKey);
-            var response = client.Get(new GetRequest() { Endpoint = "blog", ContentId = "m_5fm20iyh" }).Result;
+            var response = client.Get(new GetRequest() { Endpoint = "blog", ContentId = "hyqi1_v--eq" }).Result;
 
             var result = JsonConvert.DeserializeObject<Blog>(response);
-            result.Id.Is("m_5fm20iyh");
+            result.Id.Is("hyqi1_v--eq");
         }
 
         [TestMethod]
@@ -67,10 +67,10 @@ namespace microCMS.SDK.Tests
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
             var client = new SimpleMicroCMSClient(serviceDomain, apiKey);
-            var response = client.GetListDetail(new GetListDetailRequest() { Endpoint = "blog", ContentId = "m_5fm20iyh" }).Result;
+            var response = client.GetListDetail(new GetListDetailRequest() { Endpoint = "blog", ContentId = "hyqi1_v--eq" }).Result;
 
             var result = JsonConvert.DeserializeObject<Blog>(response);
-            result.Id.Is("m_5fm20iyh");
+            result.Id.Is("hyqi1_v--eq");
         }
 
         [TestMethod]
@@ -87,7 +87,7 @@ namespace microCMS.SDK.Tests
             var response = client.GetObject(new GetObjectRequest() { Endpoint = "popular-articles", Queries = queries }).Result;
 
             var result = JsonConvert.DeserializeObject<PopularArticles>(response);
-            result.Articles.FirstOrDefault().Id.Is("m_5fm20iyh");
+            result.Articles.FirstOrDefault().Id.Is("hyqi1_v--eq");
         }
 
         [TestMethod]
@@ -112,7 +112,7 @@ namespace microCMS.SDK.Tests
         {
             var queries = new MicroCMSQueries()
             {
-               Ids = "m_5fm20iyh,hyqi1_v--eq"
+               Ids = "hyqi1_v--eq,hyqi1_v--eq"
             };
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
@@ -121,7 +121,7 @@ namespace microCMS.SDK.Tests
             var response = client.GetList(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
             var result = JsonConvert.DeserializeObject<MicroCMSListResponse<Blog>>(response);
-            result.Contents.Count().Is(2);
+            result.Contents.Count().Is(1);
         }
 
         [TestMethod]
@@ -138,7 +138,7 @@ namespace microCMS.SDK.Tests
             var response = client.GetList(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
             var result = JsonConvert.DeserializeObject<MicroCMSListResponse<Blog>>(response);
-            result.Contents.FirstOrDefault().Id.Is("m_5fm20iyh");
+            result.Contents.FirstOrDefault().Id.Is("hyqi1_v--eq");
             result.Contents.FirstOrDefault().Writer.Name.Is("wattanx");
         }
 
@@ -164,7 +164,7 @@ namespace microCMS.SDK.Tests
         {
             var queries = new MicroCMSQueries()
             {
-                Filters = "id[equals]m_5fm20iyh"
+                Filters = "id[equals]hyqi1_v--eq"
             };
 
             apiKey = TestContext.Properties["ApiKey"].ToString();

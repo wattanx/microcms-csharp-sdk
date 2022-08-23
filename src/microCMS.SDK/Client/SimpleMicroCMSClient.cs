@@ -9,6 +9,9 @@ using microCMS.SDK.Query;
 
 namespace microCMS.SDK.Client
 {
+    /// <summary>
+    /// Non-deserialized client
+    /// </summary>
     public class SimpleMicroCMSClient
     {
         private static readonly HttpClient httpClient;
