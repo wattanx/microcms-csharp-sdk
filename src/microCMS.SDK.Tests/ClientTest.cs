@@ -37,9 +37,9 @@ namespace microCMS.SDK.Tests
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
             var client = new MicroCMSClient(serviceDomain, apiKey);
-            var response = client.Get<Blog>(new GetRequest() { Endpoint = "blog", ContentId = "m_5fm20iyh" }).Result;
+            var response = client.Get<Blog>(new GetRequest() { Endpoint = "blog", ContentId = "hyqi1_v--eq" }).Result;
 
-            response.Id.Is("m_5fm20iyh");
+            response.Id.Is("hyqi1_v--eq");
         }
 
         [TestMethod]
@@ -63,9 +63,9 @@ namespace microCMS.SDK.Tests
             apiKey = TestContext.Properties["ApiKey"].ToString();
             serviceDomain = TestContext.Properties["ServiceDomain"].ToString();
             var client = new MicroCMSClient(serviceDomain, apiKey);
-            var response = client.GetListDetail<Blog>(new GetListDetailRequest() { Endpoint = "blog", ContentId = "m_5fm20iyh" }).Result;
+            var response = client.GetListDetail<Blog>(new GetListDetailRequest() { Endpoint = "blog", ContentId = "hyqi1_v--eq" }).Result;
 
-            response.Id.Is("m_5fm20iyh");
+            response.Id.Is("hyqi1_v--eq");
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@ namespace microCMS.SDK.Tests
             var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetObject<PopularArticles>(new GetObjectRequest() { Endpoint = "popular-articles", Queries = queries }).Result;
 
-            response.Articles.FirstOrDefault().Id.Is("m_5fm20iyh");
+            response.Articles.FirstOrDefault().Id.Is("hyqi1_v--eq");
         }
 
         [TestMethod]
@@ -113,7 +113,7 @@ namespace microCMS.SDK.Tests
             var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Blog>(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
-            response.Contents.Count().Is(2);
+            response.Contents.Count().Is(1);
         }
 
         [TestMethod]
@@ -129,7 +129,7 @@ namespace microCMS.SDK.Tests
             var client = new MicroCMSClient(serviceDomain, apiKey);
             var response = client.GetList<Blog>(new GetListRequest() { Endpoint = "blog", Queries = queries }).Result;
 
-            response.Contents.FirstOrDefault().Id.Is("m_5fm20iyh");
+            response.Contents.FirstOrDefault().Id.Is("hyqi1_v--eq");
             response.Contents.FirstOrDefault().Writer.Name.Is("wattanx");
         }
 
@@ -154,7 +154,7 @@ namespace microCMS.SDK.Tests
         {
             var queries = new MicroCMSQueries()
             {
-                Filters = "id[equals]m_5fm20iyh"
+                Filters = "id[equals]hyqi1_v--eq"
             };
 
             apiKey = TestContext.Properties["ApiKey"].ToString();
